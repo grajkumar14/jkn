@@ -1,21 +1,19 @@
 pipeline {
-    agent {
-        label 'Node-1'
-    }
+    agent any
 
     stages {
-        stage('Print user') {
+        stage('System details 1st stage') {
             steps {
                 script {
-                   sh 'whoami'
+                   sh 'uname -a'
                        }
                 }
             }
 
-        stage('Print message') {
+        stage('Memory Details 2nd stage') {
             steps {
                script {
-                   sh 'echo "This is my first pipeline project"'
+                   sh 'free -m'
                       }
                 }
             }
@@ -44,10 +42,10 @@ pipeline {
                 }
             }
 
-        stage('Total block devices') {
+        stage('Timing According to india +5:30UTC 7th stage') {
             steps {
                script {
-                  sh 'lsblk'
+                  sh 'TZ="Asia/Kolkata" date'
                       }
                 }
             }
